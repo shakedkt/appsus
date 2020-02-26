@@ -1,27 +1,30 @@
 
-//import carPreview from './car-preview.cmp.js'
+ import emailPreview from './email-preview.cmp.js'
+//<email-preview :email="currEmail"></email-preview>
+// {/* <button @click="$emit('remove', currCar.id)">x</button> */}
+
+
 
 export default {
     template: `
     <section class="list-email-container">
         <h2>emails List</h2>
-       
+        <ul>
+            <li v-for="(currEmail, idx) in emails" >
+                <email-preview :email="currEmail"></email-preview>
+            </li>
+        </ul>
     </section>
     `,
     props: ['emails'],
     components: {
-       // carPreview
+        emailPreview
     },
     created() {
-        console.log('im created now');
+        console.log(this.emails);
         
     }
 }
 /*
- <ul>
-            <li v-for="(currCar, idx) in cars" >
-                <car-preview :car="currCar"></car-preview>
-                <button @click="$emit('remove', currCar.id)">x</button>
-            </li>
-        </ul>
+
         */
