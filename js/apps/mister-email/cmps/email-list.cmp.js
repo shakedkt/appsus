@@ -1,5 +1,4 @@
-
- import emailPreview from './email-preview.cmp.js'
+import emailPreview from './email-preview.cmp.js'
 //<email-preview :email="currEmail"></email-preview>
 // {/* <button @click="$emit('remove', currCar.id)">x</button> */}
 
@@ -10,7 +9,7 @@ export default {
     <section class="list-email-container">
         <h2>emails List</h2>
         <ul>
-            <li v-for="(currEmail, idx) in emails" >
+            <li v-for="(currEmail, idx) in emails" class="email-prev">
                 <email-preview :email="currEmail"></email-preview>
             </li>
         </ul>
@@ -22,7 +21,7 @@ export default {
     },
     created() {
         console.log(this.emails);
-        
+
     }
 }
 /*

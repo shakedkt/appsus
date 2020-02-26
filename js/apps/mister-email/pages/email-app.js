@@ -1,4 +1,4 @@
-import {emailService} from '../services/email-service.js';
+import { emailService } from '../services/email-service.js';
 import emailList from '../cmps/email-list.cmp.js'
 
 
@@ -9,32 +9,32 @@ export default {
         <email-list v-if="emails" :emails="emailsForDisplay"></email-list>
     </section>
     `,
-    data(){
-        return{
-         emails: [] 
-    }
-      
+    data() {
+        return {
+            emails: []
+        }
+
     },
 
-    created(){
+    created() {
         emailService.getEmails()
             .then(emails => {
-                console.log(this.emails);
-                this.emails=emails
-                console.log(this.emails);
+
+                this.emails = emails
+
             })
-       
+
     },
     computed: {
         emailsForDisplay() {
-         return this.emails
+            return this.emails
         }
     },
     methods: {
-    
+
     },
-    components:{
-       emailList,
-       // carFilter
+    components: {
+        emailList,
+        // carFilter
     }
 }

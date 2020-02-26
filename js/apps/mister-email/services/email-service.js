@@ -3,10 +3,10 @@
 // // const KEY = 'carsDB'
 
 // var emails = _createMails();   
-var emails= [
-    {subject: 'Wassap?', body: 'Pick up!', isRead: false, sentAt : 1551133930594},
-    {subject: 'meep meep?', body: 'meep!', isRead: false, sentAt : 1551144930594}
- ]
+var emails = [
+    { subject: 'Wassap?', body: 'Pick up!', isRead: true, sentAt: 1551133930594 },
+    { subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594 }
+]
 
 // function _createCars() {
 //     var cars = storageService.load(KEY)
@@ -48,7 +48,7 @@ function getEmails() {
 // } 
 // function _updateCar(car) {
 //     const idx = cars.findIndex(currCar => currCar.id === car.id);
-    
+
 //     //This is Vue PITFALL - it is not REACTIVE
 //     // cars[idx] = car;
 
@@ -84,7 +84,7 @@ function getEmails() {
 
 // function getNextPrevCarIds(carId) {
 //     const idx = cars.findIndex(car => car.id === carId)
-    
+
 //     var nextIdx = idx + 1;
 //     if (nextIdx === cars.length) nextIdx = 0; 
 //     var prevIdx = idx - 1;
