@@ -1,31 +1,61 @@
+import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { emailService } from '../services/email-service.js';
 
 export default {
     template: `
-        <form action="saveEmail">
+<transition name="fade">
+<form v-if="newEmail" class="save-email">
+<button class="close-NewEmail-btn" @click.prevent="closeNewEmail">X</button>
   <div class="form-group">
-    <label for="email-to">Send to:</label>
-    <input type="email" class="form-control" id="email-to" aria-describedby="emailHelp" placeholder="Enter email">
+     <label for="email-to">Send to:</label>
+     <input type="email" class="form-control" ref="adressInput" placeholder="Enter email">
   </div>
+  
   <div class="form-group">
     <label for="email-subject">Subject:</label>
-    <input type="text" class="form-control" id="email-subject" placeholder="Enter subject">
+    <input type="text" class="form-control"  ref="subjectInput" placeholder="Enter subject">
   </div>
-<div>
-  <textarea type="text" id="text-body" rows="4" cols="50">
-</div>
 
-  <button type="submit" class="btn btn-primary">Send</button>
-</form>              
+  <div>
+  <textarea type="text"  ref="bodyInput" rows="4" cols="50"></textarea>
+  </div>
+
+  <button @click="saveEmail" type="submit" class="save-btn" form="nameform" value="Submit">Send</button>
+  <button class="clear-btn" @click.prevent="clear"><img class="clear-btn-img" src="./img/Trash.png"/></button> 
+</form>
+</transition>
+            
     `,
-
+    data() {
+        return {
+            newEmail: null
+        }
+    },
     created() {
-
+        eventBus.$on(EVENT_SEND_EMAIL, (newEmail) => {
+            this.newEmail = newEmail
+        })
     },
     methods: {
         saveEmail() {
-            console.log('on?')
+            var adress = this.$refs.adressInput.value
+            var subject = this.$refs.subjectInput.value
+            var body = this.$refs.bodyInput.value
+            var sentAt = new Date()
+            var idxOfStrudel = adress.search("@")
+            var sender = adress.substring(0, idxOfStrudel)
+            emailService.createEmail(adress, subject, body, sentAt, sender)
+            this.clear()
+        },
+        clear() {
+            this.$refs.adressInput.value = ''
+            this.$refs.subjectInput.value = ''
+            this.$refs.bodyInput.value = ''
+        },
+        closeNewEmail() {
+            this.newEmail = false
         }
+
     }
 
 

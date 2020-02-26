@@ -5,7 +5,7 @@
 // var emails = _createMails();   
 var emails = [
     { subject: 'Wassap?', body: 'Pick up!', isRead: true, sentAt: 1551133930594, adress: 'itay@gmail.com', sender: 'itay' },
-    { subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron'}
+    { subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron' }
 ]
 
 // function _createCars() {
@@ -17,13 +17,17 @@ var emails = [
 //     return cars;
 // }
 
-// function _createCar(vendor) {
-//     return {
-//         id: utilService.makeId(),
-//         vendor,
-//         speed: utilService.getRandomInt(100, 300)
-//     } 
-// }
+function createEmail(adress, subject, body, sentAt, sender = 'new friend') {
+    var newEmail = {
+        subject: subject,
+        body: body,
+        isRead: false,
+        sentAt: sentAt,
+        adress: adress,
+        sender: sender
+    }
+    emails.push(newEmail)
+}
 
 function getEmails() {
     return Promise.resolve(emails);
@@ -99,6 +103,7 @@ function getEmails() {
 // // CRUDL - Create, Read, Update, Delete, List
 export const emailService = {
     getEmails,
+    createEmail,
     // getById,
     // saveCar,
     // removeCar,
