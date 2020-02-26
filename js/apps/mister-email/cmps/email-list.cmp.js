@@ -1,4 +1,5 @@
 import emailPreview from './email-preview.cmp.js'
+import emailCompose from './email-compose.cmp.js'
 //<email-preview :email="currEmail"></email-preview>
 // {/* <button @click="$emit('remove', currCar.id)">x</button> */}
 
@@ -13,16 +14,21 @@ export default {
                 <email-preview :email="currEmail"></email-preview>
             </li>
         </ul>
+        <email-compose></email-compose>
     </section>
     `,
     props: ['emails'],
     components: {
-        emailPreview
+        emailPreview,
+        emailCompose,
     },
     created() {
-        console.log(this.emails);
+        // console.log(this.emails);
 
-    }
+    },
+
+
+
 }
 /*
 
