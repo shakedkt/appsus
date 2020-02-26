@@ -1,3 +1,7 @@
 body {
     background-color: #EEF0EB;
 }
+
+.navbar-links {
+    text-decoration: none;
+}
