@@ -4,8 +4,8 @@
 
 // var emails = _createMails();   
 var emails = [
-    { subject: 'Wassap?', body: 'Pick up!', isRead: true, sentAt: 1551133930594, adress: 'itay@gmail.com', sender: itay },
-    { subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: yaron}
+    { subject: 'Wassap?', body: 'Pick up!', isRead: true, sentAt: 1551133930594, adress: 'itay@gmail.com', sender: 'itay' },
+    { subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron'}
 ]
 
 // function _createCars() {

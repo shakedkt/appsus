@@ -7,7 +7,7 @@ import {emailService} from '../services/email-service.js'
 • allow deleting an email (using a service)
 */
 
-
+/*
 export default {
     template:`
         <section class="car-details-container" v-if="car">
@@ -47,3 +47,4 @@ export default {
         this.getCar()
     }
 }
+*/
