@@ -1,15 +1,23 @@
 import navBar from './cmps/nav-bar.cmp.js'
+import appSusHeader from './cmps/appsus-header.cmp.js'
+import { router } from './routes.js'
 
 new Vue({
     el: '#appSus',
     router,
     template: `
-    <section> 
-        <nav-bar></nav-bar>
-        <router-view></router-view>
+    <section class="our-app"> 
+            <appsus-header>
+                </appsus-header>
+                <nav-bar></nav-bar>
+         <router-view></router-view>
+         <footer>
+             coffeerights &copy; 2020 
+        </footer>
     </section>
     `,
     components: {
-        'nav-bar': navBar
+        'nav-bar': navBar,
+        'appsus-header': appSusHeader
     }
 })

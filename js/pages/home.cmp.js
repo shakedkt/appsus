@@ -1,7 +1,13 @@
 export default {
     template: `
-    <div class="home">
-        <h1>WELCOME TO Our Home For Now</h1>
-    </div>
-    `
+        <section class="home">
+            <h1>Welcome To Our Home</h1>
+        </section>
+    `,
+
+    created() {
+        console.log('I am Created!');
+    },
+
+
 }
