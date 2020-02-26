@@ -5,7 +5,7 @@ export default {
         Home
         </router-link>
         |
-        <router-link class="navbar-links" to="/mail" exact>
+        <router-link class="navbar-links" to="/email" exact>
         Mister Email
         </router-link>
         |
