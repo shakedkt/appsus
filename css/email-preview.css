@@ -1,3 +1,7 @@
 .readed {
     font-weight: bold;
 }
+
+.email-prev-line {
+    cursor: pointer;
+}

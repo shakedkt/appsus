@@ -2,3 +2,15 @@
 .sender {
 font-weight: bold; 
 }
+
+img.add-img  {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+ } 
+
+ img.trash-img  {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+ }

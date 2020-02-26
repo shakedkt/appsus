@@ -1,12 +1,17 @@
+import bigPreview from './big-preview.cmp.js'
+
+
 export default {
     template: `
         <article v-if="email"  :class ="{readed: email.isRead}">
-        <h4>{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
-        </article>               
+        <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead}" >{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
+        <big-preview :email="email" v-if="bigPrevIsOpen"> </big-preview>    
+    </article>               
     `,
-
-    created() {
-
+    data() {
+        return {
+            bigPrevIsOpen: false
+        }
     },
     props: ['email'],
     computed: {
@@ -29,5 +34,14 @@ export default {
             return emailDate
         }
     },
+    methods: {
+openBigPrev() {
+this.bigPrevIsOpen = !this.bigPrevIsOpen
+
+}
+    },
+    components: {
+        bigPreview
+    }
 
 }
