@@ -1,5 +1,13 @@
 import {emailService} from '../services/email-service.js'
 
+
+/*
+<EmailDetails> • Routable component (page) 
+• show the entire email 
+• allow deleting an email (using a service)
+*/
+
+
 export default {
     template:`
         <section class="car-details-container" v-if="car">

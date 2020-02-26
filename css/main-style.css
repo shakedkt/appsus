@@ -1,5 +1,7 @@
 @import './email-preview.css';
 @import './email-list.css';
+@import './big-preview.css';
+
 body {
     background-color: #EEF0EB;
 }
