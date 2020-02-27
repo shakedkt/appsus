@@ -31,7 +31,6 @@ export default {
             var date = dd + '/' + mm + '/' + yyyy;
             var emailDate = date.toString()
 
-
             return emailDate
         }
     },

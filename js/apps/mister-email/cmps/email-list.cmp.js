@@ -22,14 +22,4 @@ export default {
         emailPreview,
         emailCompose,
     },
-    created() {
-        // console.log(this.emails);
-
-    },
-
-
-
 }
-/*
-
-        */

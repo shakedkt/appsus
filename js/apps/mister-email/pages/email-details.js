@@ -1,50 +1,36 @@
-import {emailService} from '../services/email-service.js'
+import { emailService } from '../services/email-service.js'
 
-
-/*
-<EmailDetails> • Routable component (page) 
-• show the entire email 
-• allow deleting an email (using a service)
-*/
-
-/*
 export default {
-    template:`
-        <section class="car-details-container" v-if="car">
-            <h1>CAR DETAILS - {{car.vendor}}</h1>
-            <pre>{{car}}</pre>
-           
-            <section v-if="nextPrevCarIds">
-                <router-link :to="nextPrevCarIds.prevId">PREV</router-link>
-                <router-link :to="nextPrevCarIds.nextId">NEXT</router-link>
-            </section>
+    template: `
+        <section" v-if="email">
+    <h1>{{email.adress}}</h1>
+    <h2>{{email.subject}}</h2>
+    <p>{{email.body}}</p>
+    <h3>{{email.sentAt}}</h3>
         </section>
     `,
-    data(){
+    data() {
         return {
-            car:null,
-            nextPrevCarIds : null
+            email: email,
         }
     },
-   
     watch: {
-        '$route.params.id'(to,from){
-            console.log('ROUTE CHANGED, loading a car');
-            this.getCar()
+        '$route.params.id'(to, from) {
+            console.log('ROUTE CHANGED, loading a email');
+            this.getEmail()
         }
     },
-    methods:{
-        getCar(){
-            const carId = this.$route.params.id
-            emailService.getById(carId)
-            .then(car => {
-                this.car = car 
-                this.nextPrevCarIds = emailService.getNextPrevCarIds(car.id);   
-            })
+    methods: {
+        getEmail() {
+            const emailId = this.$route.params.id
+            emailService.getById(emailId)
+                .then(email => {
+                    this.email = email
+                })
         }
     },
-    created(){
-        this.getCar()
+    created() {
+        this.getEmail()
+        console.log(this.email);
     }
 }
-*/
