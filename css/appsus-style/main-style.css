@@ -1,6 +1,7 @@
-@import '../css/email-style/email-preview.css';
-@import '../css/email-style/email-list.css';
-@import '../css/email-style/big-preview.css';
+@import './email-preview.css';
+@import './email-list.css';
+@import './big-preview.css';
+@import './apsus-header.css';
 body {
     background-color: #F4F9E9;
 }

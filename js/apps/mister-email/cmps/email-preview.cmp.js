@@ -1,7 +1,7 @@
 export default {
     template: `
         <article v-if="email"  :class ="{readed: email.isRead}">
-        <h4>{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
+        <h4 class="preview-email-line">{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
         </article>               
     `,
 
