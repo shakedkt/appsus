@@ -9,9 +9,9 @@ export default {
             </div>
             <div class="buttons-continer">
             <router-link :to="'/email/'+email.id" :email="email"> 
-        <img src="img/expand.png" class="add-img"/>
+        <i class="fas fa-expand"></i>
         </router-link>
-        <img src="img/trash.png" @click="onDelelteMail(book)" class="trash-img"/>
+        <i class="fas fa-trash" @click="onDelelteMail(book)"></i>
             </div>
         </article>               
     </section>
@@ -21,9 +21,5 @@ export default {
         emailForDisplay() {
             return '<' + this.email.adress + '>'
         }
-    },
-    created() {
-        // console.log(this.email.id);
-        
     },
 }

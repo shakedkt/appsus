@@ -8,6 +8,7 @@ export default {
     template: `
     <section class="email-container">
         <h1>My emailbox</h1>
+        <i class="fas fa-thumbtack"></i>
         <email-filter @set-filter="setFilter"></email-filter>
         <button @click="composeNewMail">+Compose</button>
         <email-list v-if="emails" :emails="emailsForDisplay"></email-list>
