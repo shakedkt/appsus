@@ -2,6 +2,12 @@
     font-weight: bold;
 }
 
+.email-prev-line {
+    cursor: pointer;
+    margin: 1%;
+    padding: 1%;
+}
+
 .preview-email-line {
     margin: 2px;
     padding: 10px;

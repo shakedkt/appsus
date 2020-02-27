@@ -3,11 +3,9 @@ import bigPreview from './big-preview.cmp.js'
 
 export default {
     template: `
-        <article v-if="email"  :class ="{readed: email.isRead}">
-        <h4 class="preview-email-line">{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
-        </article>        
-               
+        <article v-if="email"  :class ="{readed: email.isRead}">     
         <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead}" >{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
+        <hr v-if="bigPrevIsOpen">
         <big-preview :email="email" v-if="bigPrevIsOpen"> </big-preview>    
     </article>               
     `,
