@@ -3,7 +3,8 @@ import { emailService } from '../services/email-service.js';
 
 export default {
     template: `
-<transition name="fade">
+    <div class="save-email-continer">
+    <transition name="fade">
 <form v-if="newEmail" class="save-email">
 <button class="close-NewEmail-btn" @click.prevent="closeNewEmail">X</button>
   <div class="form-group">
@@ -24,6 +25,8 @@ export default {
   <button class="clear-btn" @click.prevent="clear"><img class="clear-btn-img" src="./img/Trash.png"/></button> 
 </form>
 </transition>
+</div>
+
             
     `,
     data() {

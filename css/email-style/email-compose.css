@@ -1,4 +1,39 @@
-.save-email {
+
+/* email-compose */
+
+.save-email-continer {
     position: fixed;
-    bottom: 2px;
+    bottom: 32px;
+    left: 48px;
+}
+
+.save-email {
+    padding: 10px;
+    width: fit-content;
+    background-color: #EFDEDE;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-NewEmail-btn {
+    align-self: flex-end;
+    background-color: transparent;
+    border: none;
+    width: 5%;
+    padding: 0%;
+}
+
+.save-btn {
+    width: 20%;
+}
+
+.clear-btn {
+    align-self: flex-end;
+    background-color: transparent;
+    border: none;
+    width: 10%;
+}
+
+.clear-btn-img {
+    width: 60%;
 }
