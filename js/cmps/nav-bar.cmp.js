@@ -9,7 +9,7 @@ export default {
         Mister Email
         </router-link>
         |
-        <router-link class="navbar-links" to="/Keep" exact>
+        <router-link class="navbar-links" to="/miss-keep" exact>
         Miss Keep
         </router-link>
         |
