@@ -1,26 +1,27 @@
 export default {
     template: `
     <section>
-        <article v-if="email" class="show">
-            <div>
+        <article v-if="email" class="big-prev-continer">
+            <div class="main-content">
+        <h2 class="big-prev-header">{{email.subject}}</h2>
+        <h4>{{email.sender}}</h4> <h4 class="sender"> {{emailForDisplay}} </h4>
+        <p>{{email.body}}</p>        
+
+            </div>
+            <div class="buttons-continer">
         <img src="img/expand.png" @click="onOpenDeatils()" class="add-img"/>
         <img src="img/trash.png" @click="onDelelteMail(book)" class="trash-img"/>
-</div>
-        <h2>{{email.subject}}</h2>
-        <h4>{{email.sender}}</h4> <h4 class="sender"> {{emailForDisplay}} </h4>
-        <div class="icons">
-
-        </div>
+            </div>
         </article>               
 </section>
  `,
-   methods: {
+    methods: {
 
-},
-        props: ['email'],
+    },
+    props: ['email'],
     computed: {
         emailForDisplay() {
-           return '<' + this.email.sender + '>'
+            return '<' + this.email.adress + '>'
         }
     },
 }
