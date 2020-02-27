@@ -1,17 +1,18 @@
 import bigPreview from './big-preview.cmp.js'
 
-
 export default {
     template: `
-        <article v-if="email"  :class ="{readed: email.isRead}">     
-        <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead}" >{{email.subject}} |{{email.body}} |sent at: {{emailDateChange}}</h4>
-        <hr v-if="bigPrevIsOpen">
+        <article v-if="email" :class ="{readed: email.isRead}">     
+        <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead,opend: bigPrevIsOpen}" >
+       <p class="mail-subject"> {{email.subject}} </p> <p class="mail-body">{{showShortText}}</p> <p class="mail-date">{{emailDateChange}} </p>
+         </h4>
+         <hr v-if="bigPrevIsOpen">
         <big-preview :email="email" v-if="bigPrevIsOpen"> </big-preview>    
     </article>               
     `,
     data() {
         return {
-            bigPrevIsOpen: false
+            bigPrevIsOpen: false,
         }
     },
     props: ['email'],
@@ -32,12 +33,17 @@ export default {
             var emailDate = date.toString()
 
             return emailDate
+        },
+        showShortText() {
+            if (this.email.body.length > 100) return this.email.body.substr(0,100)+'...'
+            return this.email.body
         }
+        
     },
     methods: {
         openBigPrev() {
             this.bigPrevIsOpen = !this.bigPrevIsOpen
-
+            
         }
     },
     components: {
