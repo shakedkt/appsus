@@ -8,7 +8,7 @@ export default {
         <p>{{email.body}}</p>        
             </div>
             <div class="buttons-continer">
-            <router-link :to="'/email/'+email.id"> 
+            <router-link :to="'/email/'+email.id" :email="email"> 
         <img src="img/expand.png" class="add-img"/>
         </router-link>
         <img src="img/trash.png" @click="onDelelteMail(book)" class="trash-img"/>
@@ -21,5 +21,9 @@ export default {
         emailForDisplay() {
             return '<' + this.email.adress + '>'
         }
-    }
+    },
+    created() {
+        // console.log(this.email.id);
+        
+    },
 }

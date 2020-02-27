@@ -2,7 +2,7 @@ import { emailService } from '../services/email-service.js'
 
 export default {
     template: `
-        <section" v-if="email">
+        <section v-if="email">
     <h1>{{email.adress}}</h1>
     <h2>{{email.subject}}</h2>
     <p>{{email.body}}</p>
@@ -11,26 +11,26 @@ export default {
     `,
     data() {
         return {
-            email: email,
+            email: null,
         }
     },
     watch: {
-        '$route.params.id'(to, from) {
-            console.log('ROUTE CHANGED, loading a email');
+        '$route.params.id'(para) {
+            console.log('para:', this.$route.params.id);
             this.getEmail()
         }
     },
     methods: {
         getEmail() {
-            const emailId = this.$route.params.id
-            emailService.getById(emailId)
-                .then(email => {
+            const emailId = +this.$route.params.id
+
+            emailService.getEmailById(emailId)
+            .then(email => {
                     this.email = email
                 })
         }
     },
     created() {
         this.getEmail()
-        console.log(this.email);
     }
 }
