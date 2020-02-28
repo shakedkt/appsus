@@ -9,7 +9,18 @@ export default {
     template: `
     <section class="miss-keep-container">
         <h1>Miss Keep</h1>
-        <h2>notes</h2>                 
+        <h2>notes</h2> 
+        <div class="make-note">
+            <label>Make New Note</label>
+             <input type="text" class="note-text-container" placeholder="Enter your text here...">
+             <section class="btn-section-note">
+                <button class="txt-btn">Text</button>
+                <button class="image-btn">Image</button> 
+                <button class="todos-btn">Todos</button>
+                <button class="video-btn">Video</button>
+            </section>
+        </div>
+        </div>                
              <keep-list v-if="notes" :notes="notesForDisplay"></keep-list>
              
           <!-- <componenet :is="note.type" :notes="notesForDisplay" v-for="(note, idx) in notes"></componenet> -->
@@ -22,10 +33,13 @@ export default {
             notes: null
         }
     },
-    // methods: {},
+    methods: {
+
+    },
 
     created() {
         this.notesForDisplay
+
     },
     computed: {
         notesForDisplay() {

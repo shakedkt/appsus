@@ -1,22 +1,23 @@
-import notetext from '../keep-cmps/note-text.cmp.js'
+import noteText from '../keep-cmps/note-text.cmp.js'
 export default {
     template: `
     <section class="keep-list">
         <h2>Note List</h2>
               <!-- <div v-for="(note, idx) in notes" :note="notesForDisplay">{{note.type}} | {{note.info.txt}} </div> -->
-              <note-text v-for="(note, idx) in notes" :note="notesForDisplay">{{note.type}} | {{note.info.txt}} </note-text>
+              <div v-for="(note, idx) in notes" >{{note.type}} | {{note.info.txt}} </div>
     </section>
        
     `,
-    // data() {
-    //     return {
-    //         notes: null
-    //     }
+    data() {
+        return {
+            noteType: 'note-text'
+        }
+    },
 
-    // },
     props: ['notes'],
+
     components: {
-        notetext
+        noteText
     }
 
 
