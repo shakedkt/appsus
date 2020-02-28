@@ -2,16 +2,19 @@ import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { emailService } from '../services/email-service.js';
 import emailList from '../cmps/email-list.cmp.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
-
+import navBar from '../cmps/nav-bar.cmp.js'
 
 export default {
     template: `
     <section class="email-container">
-        <h1>My emailbox</h1>
         <email-filter @set-filter="setFilter"></email-filter>
-        <button @click="composeNewMail">+Compose</button>
+        
+        <button class="compose-btn" @click="composeNewMail">Compose</button>
+            <div class="nav-and-body">
+        <nav-bar></nav-bar>
         <email-list v-if="emails" :emails="emailsForDisplay"></email-list>
-    </section>
+            </div>
+        </section>
     `,
     data() {
         return {
@@ -42,10 +45,10 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy
         }
-
     },
     components: {
         emailList,
-        emailFilter
+        emailFilter,
+        navBar
     }
 }
