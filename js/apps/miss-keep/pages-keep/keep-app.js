@@ -1,6 +1,7 @@
 // import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { keepService } from '../services-keep/keep-service.js';
 // import noteText from '../keep-cmps/note-text.cmp.js'
+import noteText from '../keep-cmps/note-text.cmp.js'
 import keepList from '../keep-cmps/keep-list.cmp.js'
 
 
@@ -50,7 +51,8 @@ export default {
         }
     },
     components: {
-        keepList
+        keepList,
+        noteText
         // emailList,
         // emailFilter
 
