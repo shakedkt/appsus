@@ -7,11 +7,10 @@ import navBar from '../cmps/nav-bar.cmp.js'
 export default {
     template: `
     <section class="email-container">
-        <email-filter @set-filter="setFilter"></email-filter>
         
         <button class="compose-btn" @click="composeNewMail">Compose</button>
             <div class="nav-and-body">
-        <nav-bar></nav-bar>
+        <nav-bar @set-filter="setFilter"></nav-bar>
         <email-list v-if="emails" :emails="emailsForDisplay"></email-list>
             </div>
         </section>
@@ -32,18 +31,32 @@ export default {
     computed: {
         emailsForDisplay() {
             if (!this.filterBy) return this.emails;
-            return this.emails.filter(email => {
-                    return email.sender.includes(this.filterBy.sender)
-                }
-            );
+
+            if (this.filterBy === 'inbox') {
+                return this.emails.filter(email => {
+                    return email
+                })
+            }
+            else if (this.filterBy === 'stared') {
+                return this.emails.filter(email => {
+                    return email.isStared
+                })
+            } else if (this.filterBy === 'sentMail') {
+                return this.emails.filter(email => {
+                    console.log(email.sender);
+                    console.log(this.emails);
+                    
+                    if(email.sender === 'shaked') return email 
+                })
+            }
         }
     },
     methods: {
         composeNewMail() {
             eventBus.$emit(EVENT_SEND_EMAIL, true)
         },
-        setFilter(filterBy) {
-            this.filterBy = filterBy
+        setFilter(filter) {
+            this.filterBy = filter
         }
     },
     components: {

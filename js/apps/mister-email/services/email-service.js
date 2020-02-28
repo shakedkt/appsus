@@ -1,15 +1,29 @@
 import{ utilService} from './util-service.js'
+import {storageService} from './storage.service.js'
 
-// import { emailService } from '../services/email-service.js';
+const KEY = 'emailsDB'
 
 
-var emails = [
+const fakeData = [
 
-    {id: 2, subject: 'Wassap?', body: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates esse omnis quia dolores ullam corporis ab iusto. Soluta fuga, doloribus iure, tenetur quis eveniet ducimus corporis deserunt at, odio autem.', isRead: true, sentAt: 1551133930594, adress: 'itay@gmail.com', sender: 'itay' },
-    { id: 1, subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron' }
+    {id: 1, subject: 'Wassap?', body: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates esse omnis quia dolores ullam corporis ab iusto. Soluta fuga, doloribus iure, tenetur quis eveniet ducimus corporis deserunt at, odio autem.', isRead: false, sentAt: 1551133930594, adress: 'itay@gmail.com', sender: 'itay', isStared: false,},
+
+    { id: 2, subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron', isStared: false }
 ]
+var emails = _createEmails();   
 
-function createEmail(adress, subject, body, sentAt, sender = 'new friend') {
+
+function _createEmails() {
+    
+    var emails = storageService.load(KEY)
+    if (!emails || !emails.length) {
+        emails = fakeData
+        storageService.store(KEY, emails)
+    }
+    return emails;
+}
+
+function createEmail(adress, subject, body, sentAt, sender = 'new friend', isSent) {
     var newEmail = {
         id: utilService.makeId(),
         subject: subject,
@@ -18,9 +32,14 @@ function createEmail(adress, subject, body, sentAt, sender = 'new friend') {
         sentAt: sentAt,
         adress: adress,
         sender: sender,
-        isStared: false
+        isStared: false,
+        isSent: isSent,
+        isDraft: false,
+        
     }
-    emails.push(newEmail)
+    emails.unshift(newEmail)
+    storageService.store(KEY, emails)
+    return Promise.resolve(emails)
 }
 
 function getEmails() {
@@ -32,10 +51,19 @@ function getEmailById(emailId){
     return Promise.resolve(email)
 }
 
+function removeEmail(emailId) {
+    const idx = emails.findIndex(email => email.id === emailId)
+    if(idx === -1) return Promise.reject('DID NOT REMOVE Email')
+    emails.splice(idx, 1);
+    storageService.store(KEY, emails)
+    return Promise.resolve('Email REMOVED')
+}
+
 // // CRUDL - Create, Read, Update, Delete, List
 export const emailService = {
     getEmails,
     createEmail,
-    getEmailById
-
+    getEmailById,
+    removeEmail
 }
+

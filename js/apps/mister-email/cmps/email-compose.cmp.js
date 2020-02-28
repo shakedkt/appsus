@@ -21,17 +21,16 @@ export default {
   <textarea type="text"  ref="bodyInput" rows="4" cols="50"></textarea>
   </div>
 
-  <button @click="saveEmail" type="submit" class="save-btn" form="nameform" value="Submit">Send</button>
+  <button @click="saveEmail" type="submit" class="save-btn" form="nameform" value="Submit" @click.prevent="closeNewEmail">Send</button>
   <button class="clear-btn" @click.prevent="clear"><img class="clear-btn-img" src="./img/Trash.png"/></button> 
 </form>
 </transition>
-</div>
-
-            
+</div>      
     `,
     data() {
         return {
-            newEmail: null
+            newEmail: null,
+            isSent: true
         }
     },
     created() {
@@ -47,7 +46,9 @@ export default {
             var sentAt = new Date()
             var idxOfStrudel = adress.search("@")
             var sender = adress.substring(0, idxOfStrudel)
-            emailService.createEmail(adress, subject, body, sentAt, sender)
+            if (sender !== '') {
+                emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent)
+            }
             this.clear()
         },
         clear() {
@@ -56,9 +57,13 @@ export default {
             this.$refs.bodyInput.value = ''
         },
         closeNewEmail() {
+            /*
+            this.isSent = false
+            this.saveEmail()
+            this.isSent = true
+            */
             this.newEmail = false
         }
-
     }
 
 

@@ -1,9 +1,5 @@
 import emailPreview from './email-preview.cmp.js'
 import emailCompose from './email-compose.cmp.js'
-//<email-preview :email="currEmail"></email-preview>
-// {/* <button @click="$emit('remove', currCar.id)">x</button> */}
-
-
 
 export default {
     template: `
