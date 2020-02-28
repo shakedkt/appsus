@@ -1,16 +1,14 @@
 
 export default {
     template: `
-        <section class=nav-bar>
-        <li class="fas fa-inbox">inbox </li>
-        <li class="fas fa-star">starred </li>
-        <li class="fa-share-square">sent mail </li>
-        <li>drafts </li>
-        </section>
-    
-    
-    
+        <ul class="nav-bar">       
+                    <li class="inbox fas fa-inbox">inbox </li>      
+                    <li class="starred fas fa-star">starred </li>
+                    <li class="sent fas fa-share-square">sent mail </li>
+                    <li class="draft fab fa-firstdraft">drafts </li>
+        </ul>
         `,
+
     data() {
         return {
             bigPrevIsOpen: false,
@@ -25,7 +23,7 @@ export default {
     
     },
     components: {
-        bigPreview
+        
     }
 
 }

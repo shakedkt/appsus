@@ -15,7 +15,7 @@ export default {
             </li>
         </ul>
         <!-- <email-filter @set-filter="setFilter"></email-filter>
-        <button @click="composeNewMail">+Compose</button>
+        <button class="compose-btn" @click="composeNewMail">Compose</button>
         <email-list v-if="emails" :emails="emailsForDisplay"></email-list> -->
     </section>
     `,

@@ -17,7 +17,8 @@ function createEmail(adress, subject, body, sentAt, sender = 'new friend') {
         isRead: false,
         sentAt: sentAt,
         adress: adress,
-        sender: sender
+        sender: sender,
+        isStared: false
     }
     emails.push(newEmail)
 }

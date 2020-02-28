@@ -3,6 +3,7 @@
 @import '../email-style/big-preview.css';
 @import '../email-style/email-compose.css';
 @import '../appsus-style/apsus-header.css';
+@import '../email-style/nav-bar.css';
 
 body {
     background-color: #F4F9E9;
@@ -23,10 +24,21 @@ button {
 
 .fade-enter,
 .fade-leave-to
-/* .fade-leave-active below version 2.1.8 */
 
 {
     opacity: 0;
+}
+
+.email-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.meep {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
 }
 
 footer {
@@ -41,4 +53,17 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.nav-and-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.compose-btn {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+    /* lef: 48px; */
 }

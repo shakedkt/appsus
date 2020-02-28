@@ -1,7 +1,6 @@
 export default {
     template: `
     <section class="email-filter">
-        <h3>Filter Emails</h3>
         <input type="text" 
             placeholder="Search by name..." 
             v-model="filterBy.sender" 
