@@ -1,3 +1,5 @@
+import { emailService } from '../services/email-service.js';
+
 export default {
     template: `
     <section>
@@ -11,7 +13,7 @@ export default {
             <router-link :to="'/email/'+email.id" :email="email"> 
         <i class="fas fa-expand"></i>
         </router-link>
-        <i class="fas fa-trash" @click="onDelelteMail(book)"></i>
+        <i class="fas fa-trash" @click="onDelelteMail(email.id)"></i>
             </div>
         </article>               
     </section>
@@ -21,5 +23,19 @@ export default {
         emailForDisplay() {
             return '<' + this.email.adress + '>'
         }
-    },
+    }, 
+    methods: {
+        onDelelteMail(emailId) {
+            // console.log('Removing Car', carId);
+            emailService.removeEmail(emailId)
+                .then(()=>{
+                    console.log(`email ${emailId} deleted succesfully`);
+                    eventBus.$emit(EVENT_SHOW_MSG, {
+                        txt: `email ${emailId} deleted succesfully`,
+                        type: 'success'
+                    })
+                })
+        }
+    }
 }
+

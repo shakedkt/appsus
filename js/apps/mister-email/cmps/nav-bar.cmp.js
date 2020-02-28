@@ -2,28 +2,22 @@
 export default {
     template: `
         <ul class="nav-bar">       
-                    <li class="inbox fas fa-inbox">inbox </li>      
-                    <li class="starred fas fa-star">starred </li>
-                    <li class="sent fas fa-share-square">sent mail </li>
+                    <li @click="filterByType('inbox')" class="inbox fas fa-inbox">inbox </li>      
+                    <li @click="filterByType('stared')" class="starred fas fa-star"> starred </li>
+                    <li @click="filterByType('sentMail')" class="sent fas fa-share-square">sent mail </li>
                     <li class="draft fab fa-firstdraft">drafts </li>
         </ul>
         `,
-
     data() {
         return {
-            bigPrevIsOpen: false,
+            filterBy: null
         }
-    },
-    props: ['email'],
-    computed: {
-      
-        }
-        ,
-    methods: {
-    
-    },
-    components: {
-        
     }
-
+    ,
+    methods: {
+        filterByType(filterType) {
+            this.filterBy = filterType
+            this.$emit('set-filter', this.filterBy)
+        }
+    }
 }

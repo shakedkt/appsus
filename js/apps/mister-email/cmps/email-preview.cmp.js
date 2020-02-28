@@ -4,6 +4,10 @@ export default {
     template: `
         <article v-if="email" :class ="{readed: email.isRead}">     
         <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead,opend: bigPrevIsOpen}" >
+        <div class="inline-btns">
+        <i class="fas fa-star prev-line-star" :class ="{starred: email.isStared}" @click="changeStarred" aria-hidden="true"></i>
+        <i class="fab fa-readme" aria-hidden="true"></i>
+    </div>
        <p class="mail-subject"> {{email.subject}} </p> <p class="mail-body">{{showShortText}}</p> <p class="mail-date">{{emailDateChange}} </p>
          </h4>
          <hr v-if="bigPrevIsOpen">
@@ -42,9 +46,17 @@ export default {
     },
     methods: {
         openBigPrev() {
-            this.bigPrevIsOpen = !this.bigPrevIsOpen
+            console.log('open big prev');
             
-        }
+            this.bigPrevIsOpen = !this.bigPrevIsOpen
+        },
+        changeStarred(eventLiberman) {
+            console.log(eventLiberman)
+            this.email.isStared = !this.email.isStared
+            this.email.isRead = true
+            eventLiberman.stopPropagation()
+        },
+
     },
     components: {
         bigPreview

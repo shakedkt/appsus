@@ -14,13 +14,12 @@ export default {
     `,
     data() {
         return {
-            filterBy: { sender: '' }
+            filterBy: { isStared: true }
         }
     },
     watch: {
         filterBy: {
             handler(newVal) {
-                // console.log(' new', newVal);
                 this.emitFilter();
             },
             deep: true

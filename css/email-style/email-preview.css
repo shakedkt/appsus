@@ -22,3 +22,11 @@
 .email-prev-line > * {
     display: inline-block;
 }
+
+.fas.fa-star.prev-line-star {
+    font-weight: normal;
+}
+
+.starred {
+    font-weight: 900 !important; 
+}
