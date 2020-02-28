@@ -12,7 +12,7 @@ new Vue({
                 <nav-bar></nav-bar>
          <router-view></router-view>
          <footer>
-             coffeerights &copy; 2020 
+             Rotem 🐣 Shaked &copy; 2020 
         </footer>
     </section>
     `,

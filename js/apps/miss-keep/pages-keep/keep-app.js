@@ -15,10 +15,10 @@ export default {
             <label>Make New Note</label>
              <input v-on:keyup.enter="onAddNote($event)" ref="inputVal" v-model="info.txt" type="text" class="note-text-container" placeholder="Enter your text here...">
              <section class="btn-section-note">
-                <button @click="changeNoteType($event)" class="txt-btn">Text</button>
-                <button @click="changeNoteType($event)" class="image-btn">Image</button> 
-                <button @click="changeNoteType($event)" class="todos-btn">Todos</button>
-                <button @click="changeNoteType($event)" class="video-btn">Video</button>
+                <button @click="changeNoteType($event)" class="txt-btn"><i class="fas fa-font"></i></button>
+                <button @click="changeNoteType($event)" class="image-btn"><i class="far fa-image"></i></button> 
+                <button @click="changeNoteType($event)" class="todos-btn"><i class="fas fa-list-ul"></i></button>
+                <button @click="changeNoteType($event)" class="video-btn"><i class="fab fa-youtube"></i></button>
             </section>
         </div>
     </form>                
