@@ -39,7 +39,7 @@ export default {
             return emailDate
         },
         showShortText() {
-            if (this.email.body.length > 100) return this.email.body.substr(0,100)+'...'
+            if (this.email.body.length > 100) return this.email.body.substr(0,60)+'...'
             return this.email.body
         }
         
