@@ -1,6 +1,7 @@
 // import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { keepService } from '../services-keep/keep-service.js';
 // import noteText from '../keep-cmps/note-text.cmp.js'
+import noteText from '../keep-cmps/note-text.cmp.js'
 import keepList from '../keep-cmps/keep-list.cmp.js'
 
 
@@ -10,17 +11,17 @@ export default {
     <section class="miss-keep-container">
         <h1>Miss Keep</h1>
         <h2>notes</h2> 
-        <div class="make-note">
+        <form class="make-note">
             <label>Make New Note</label>
-             <input type="text" class="note-text-container" placeholder="Enter your text here...">
+             <input v-on:keyup.enter="onAddNote($event)" ref="inputVal" v-model="info.txt" type="text" class="note-text-container" placeholder="Enter your text here...">
              <section class="btn-section-note">
-                <button class="txt-btn">Text</button>
-                <button class="image-btn">Image</button> 
-                <button class="todos-btn">Todos</button>
-                <button class="video-btn">Video</button>
+                <button @click="changeNoteType($event)" class="txt-btn">Text</button>
+                <button @click="changeNoteType($event)" class="image-btn">Image</button> 
+                <button @click="changeNoteType($event)" class="todos-btn">Todos</button>
+                <button @click="changeNoteType($event)" class="video-btn">Video</button>
             </section>
         </div>
-        </div>                
+    </form>                
              <keep-list v-if="notes" :notes="notesForDisplay"></keep-list>
              
           <!-- <componenet :is="note.type" :notes="notesForDisplay" v-for="(note, idx) in notes"></componenet> -->
@@ -30,10 +31,53 @@ export default {
     `,
     data() {
         return {
-            notes: null
+            notes: null,
+            noteType: 'note-text',
+            info: { txt: '' }
         }
     },
     methods: {
+        onAddNote(event) {
+            var txt = this.info.txt
+            keepService.createNote(this.noteType, txt)
+            this.clearInput(event)
+        },
+        changeNoteType(ev) {
+            console.log('yes?')
+            const whichBtnClicked = ev.target.classList.value
+            switch (whichBtnClicked) {
+                case 'txt-btn':
+                    {
+                        this.noteType = 'note-text'
+                        console.log('is text!')
+                        break;
+                    }
+                case 'image-btn':
+                    {
+                        this.noteType = 'image-btn'
+                        console.log('is image!')
+                        break;
+                    }
+                case 'todos-btn':
+                    {
+                        this.noteType = 'todos-btn'
+                        console.log('is todos!')
+                        break;
+                    }
+                case 'video-btn':
+                    {
+                        this.noteType = 'video-btn'
+                        console.log('is video!')
+                        break;
+                    }
+            }
+
+
+        },
+        clearInput(event) {
+            this.$refs.inputVal.value = ''
+            console.log(this.$refs.inputVal.value) //////cant clear input!
+        }
 
     },
 
@@ -50,7 +94,8 @@ export default {
         }
     },
     components: {
-        keepList
+        keepList,
+        noteText
         // emailList,
         // emailFilter
 

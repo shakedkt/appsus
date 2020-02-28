@@ -1,4 +1,3 @@
-import noteText from '../keep-cmps/note-text.cmp.js'
 export default {
     template: `
     <section class="keep-list">
@@ -10,15 +9,13 @@ export default {
     `,
     data() {
         return {
-            noteType: 'note-text'
+
         }
     },
 
     props: ['notes'],
 
-    components: {
-        noteText
-    }
+
 
 
 
