@@ -1,0 +1,21 @@
+.make-note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    height: 200px;
+    width: 50%;
+    padding: 2%;
+}
+
+.note-text-container {
+    text-align: center;
+    width: 80%;
+    height: 80%;
+    padding-bottom: 5%;
+}
+
+.btn-section-note {
+    margin: 5%;
+}
