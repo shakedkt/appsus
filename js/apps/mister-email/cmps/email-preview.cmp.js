@@ -1,14 +1,19 @@
-import bigPreview from './big-preview.cmp.js'
+import bigPreview from './big-preview.cmp.js' 
+import { emailService } from '../services/email-service.js';
+
 
 export default {
     template: `
-        <article v-if="email" :class ="{readed: email.isRead}">     
-        <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead,opend: bigPrevIsOpen}" >
+        <article v-if="email" :class ="{readed: !email.isRead}">     
+        <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead,    opend: bigPrevIsOpen}" >
         <div class="inline-btns">
         <i class="fas fa-star prev-line-star" :class ="{starred: email.isStared}" @click="changeStarred" aria-hidden="true"></i>
         <i class="fab fa-readme" aria-hidden="true"></i>
     </div>
-       <p class="mail-subject"> {{email.subject}} </p> <p class="mail-body">{{showShortText}}</p> <p class="mail-date">{{emailDateChange}} </p>
+
+       <p>from: {{email.sender}}  <p> 
+       <p class="mail-subject"> Subject: {{email.subject}} </p> <p class="mail-body">{{showShortText}}</p> <p class="mail-date">{{emailDateChange}} </p>
+      
          </h4>
          <hr v-if="bigPrevIsOpen">
         <big-preview :email="email" v-if="bigPrevIsOpen"> </big-preview>    
@@ -16,8 +21,12 @@ export default {
     `,
     data() {
         return {
+            currEmail: null,
             bigPrevIsOpen: false,
         }
+    },
+    created() {
+        this.getEmail()
     },
     props: ['email'],
     computed: {
@@ -39,27 +48,30 @@ export default {
             return emailDate
         },
         showShortText() {
-            if (this.email.body.length > 100) return this.email.body.substr(0,60)+'...'
+            if (this.email.body.length > 25) return this.email.body.substr(0,25)+'...'
             return this.email.body
         }
-        
     },
     methods: {
-        openBigPrev() {
-            console.log('open big prev');
-            
+        openBigPrev() {            
             this.bigPrevIsOpen = !this.bigPrevIsOpen
+            this.currEmail.isRead = true
         },
-        changeStarred(eventLiberman) {
-            console.log(eventLiberman)
-            this.email.isStared = !this.email.isStared
-            this.email.isRead = true
-            eventLiberman.stopPropagation()
+        changeStarred(event) {
+            this.currEmail.isStared = !this.currEmail.isStared
+            this.currEmail.isRead = true
+            event.stopPropagation()
         },
-
+        getEmail(){
+            const emailId = this.email.id
+            emailService.getEmailById(emailId)
+            .then(email => {
+                this.currEmail = email        
+            })
+        }
     },
     components: {
         bigPreview
     }
-
 }
+

@@ -65,12 +65,16 @@ footer {
 .compose-btn {
     padding: 10px;
     border-radius: 20px;
-    border: none;
+    border: 1px solid black;
     width: 80px;
-    /* lef: 48px; */
+    align-self: flex-end;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
-
+.compose-btn:hover {
+background-color: rgb(109, 109, 109);
+}
 
 .prev-line-star {
     font-weight: 0;

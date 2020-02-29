@@ -16,7 +16,6 @@ export default {
     },
     watch: {
         '$route.params.id'(para) {
-            console.log('para:', this.$route.params.id);
             this.getEmail()
         }
     },

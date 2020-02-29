@@ -2,19 +2,19 @@ export default {
     template: `
     <section class="email-filter">
         <input type="text" 
-            placeholder="Search by name..." 
+            placeholder="Search by subject name..." 
             v-model="filterBy.sender" 
         />
 
         <!-- <input type="text" 
-            placeholder="Minimal speed"
+            placeholder="search for "
             v-model.number="filterBy.isRead"
         /> -->
     </section>
     `,
     data() {
         return {
-            filterBy: { isStared: true }
+            filterBy: { subject: ''}
         }
     },
     watch: {
@@ -28,10 +28,7 @@ export default {
     methods: {
         emitFilter() {
             this.filterBy.sender = this.filterBy.sender.toLowerCase()
-            this.$emit('set-filter', this.filterBy)
+            this.$emit('set-search', this.filterBy)
         }
     }
-
-
-
 }

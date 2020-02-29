@@ -1,16 +1,17 @@
 import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { emailService } from '../services/email-service.js';
 import emailList from '../cmps/email-list.cmp.js'
-import emailFilter from '../cmps/email-filter.cmp.js'
+//import emailFilter from '../cmps/email-filter.cmp.js'
 import navBar from '../cmps/nav-bar.cmp.js'
 
 export default {
     template: `
     <section class="email-container">
-        
-        <button class="compose-btn" @click="composeNewMail">Compose</button>
+       <div class="compose-btn" @click="composeNewMail"> 
+    <i class="fas fa-plus">Compose</i>
+    </div>
             <div class="nav-and-body">
-        <nav-bar @set-filter="setFilter"></nav-bar>
+        <nav-bar :emails="emails" @set-filter="setFilter"></nav-bar>
         <email-list v-if="emails" :emails="emailsForDisplay"></email-list>
             </div>
         </section>
@@ -42,10 +43,7 @@ export default {
                     return email.isStared
                 })
             } else if (this.filterBy === 'sentMail') {
-                return this.emails.filter(email => {
-                    console.log(email.sender);
-                    console.log(this.emails);
-                    
+                return this.emails.filter(email => {  
                     if(email.sender === 'shaked') return email 
                 })
             }
@@ -61,7 +59,7 @@ export default {
     },
     components: {
         emailList,
-        emailFilter,
+        //emailFilter,
         navBar
     }
 }
