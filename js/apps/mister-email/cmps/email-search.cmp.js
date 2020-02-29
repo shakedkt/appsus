@@ -1,15 +1,10 @@
 export default {
     template: `
-    <section class="email-filter">
-        <input type="text" 
+    <section >
+        <input type="text" class="email-search-box" 
             placeholder="Search by subject name..." 
             v-model="filterBy.subject" 
         />
-
-        <!-- <input type="text" 
-            placeholder="search for "
-            v-model.number="filterBy.isRead"
-        /> -->
     </section>
     `,
     data() {

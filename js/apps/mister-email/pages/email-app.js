@@ -7,7 +7,7 @@ import navBar from '../cmps/nav-bar.cmp.js'
 export default {
     template: `
     <section class="email-container">
-    <email-search @set-search="setSearch"></email-search>
+    <email-search class="email-search" @set-search="setSearch"></email-search>
 
        <div class="compose-btn" @click="composeNewMail"> 
     <i class="fas fa-plus">Compose</i>
