@@ -3,7 +3,7 @@ export default {
     <section class="email-filter">
         <input type="text" 
             placeholder="Search by subject name..." 
-            v-model="filterBy.sender" 
+            v-model="filterBy.subject" 
         />
 
         <!-- <input type="text" 
@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         emitFilter() {
-            this.filterBy.sender = this.filterBy.sender.toLowerCase()
+            this.filterBy.subject = this.filterBy.subject            
             this.$emit('set-search', this.filterBy)
         }
     }
