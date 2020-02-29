@@ -1,7 +1,7 @@
 var notes = [
     { type: "note-text", isPinned: true, info: { txt: "Fullstack Me Baby!" } },
     // { type: "note-text", isPinned: true, info: { txt: "i did my best" } }
-    // { type: "note-Img", info: { url: "http://some-img/me", title: "Me playing Mi" }, style: { backgroundColor: "#00d" } },
+    // { type: "note-Image", info: { url: "https://images.app.goo.gl/4kSUKmJ12a9f7qqq9", title: "Dog" }, style: { backgroundColor: "#00d" } },
     // {
     //     type: "note-todos",
     //     info: {

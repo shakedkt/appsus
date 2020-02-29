@@ -2,7 +2,7 @@
 import { keepService } from '../services-keep/keep-service.js';
 // import noteText from '../keep-cmps/note-text.cmp.js'
 import noteText from '../keep-cmps/note-text.cmp.js'
-import keepList from '../keep-cmps/keep-list.cmp.js'
+import keepDynamic from '../keep-cmps/keep-dynamic.cmp.js'
 
 
 
@@ -22,7 +22,7 @@ export default {
             </section>
         </div>
     </form>                
-             <keep-list v-if="notes" :notes="notesForDisplay"></keep-list>
+             <keep-dynamic v-for="(note, idx) in notesForDisplay" v-bind:key="idx" :info="note.info"></keep-dynamic>
              
           <!-- <componenet :is="note.type" :notes="notesForDisplay" v-for="(note, idx) in notes"></componenet> -->
       
@@ -94,7 +94,7 @@ export default {
         }
     },
     components: {
-        keepList,
+        keepDynamic,
         noteText
         // emailList,
         // emailFilter

@@ -1,32 +1,22 @@
 export default {
     template: `
     <div class="note-text">
-  
-
+    <h1>note text here</h1>
+        <h1>{{txt}}</h1>
+        <pre>{{txt}}</pre>
+    </div>
             
     `,
-    data() {
-        return {
-            val: ''
-        }
+    // data() {
 
-    },
-    props: ['notes'],
-
-    created: {
-        check() {
-            console.log('here?', this.val)
-            console.log('here?', this.notes)
-        }
-
-    },
-    methods: {
-        reportVal() {
-            this.$emit('setVal', this.val)
-            console.log('reporting val')
-        }
-
+    // },
+    props: ['txt'],
+    created() {
+        console.log('im here', this.txt)
     }
+
+
+
 
 
 }
