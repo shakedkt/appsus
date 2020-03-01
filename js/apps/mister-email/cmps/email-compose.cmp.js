@@ -1,6 +1,5 @@
 import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { emailService } from '../services/email-service.js';
-//<button class="close-NewEmail-btn" @click.prevent="closeNewEmail">X</button>
 
 export default {
     template: `
@@ -48,9 +47,8 @@ export default {
             var sentAt = new Date()
             var idxOfStrudel = adress.search("@")
             var sender = adress.substring(0, idxOfStrudel)
-            var isRead = false
             if (sender !== '') {
-                emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent, isRead)
+                emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent)
             }
             this.clear()
         },
@@ -60,11 +58,6 @@ export default {
             this.$refs.bodyInput.value = ''
         },
         closeNewEmail() {
-            /*
-            this.isSent = false
-            this.saveEmail()
-            this.isSent = true
-            */
             this.newEmail = false
         }
     }

@@ -65,9 +65,8 @@ footer {
 .compose-btn {
     padding: 10px;
     border-radius: 20px;
-    border: 2px solid rgb(227, 231, 219);;
+    border: 1px solid rgb(227, 231, 219);;
     width: 80px;
-    align-self: flex-end;
     margin-right: 20px;
     cursor: pointer;
 }
