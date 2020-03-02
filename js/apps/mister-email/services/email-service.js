@@ -2,7 +2,7 @@ import{ utilService} from './util-service.js'
 import {storageService} from './storage.service.js'
 
 const KEY = 'emailsDB'
-
+var gIdx = 3
 
 const fakeData = [
 
@@ -24,7 +24,7 @@ function _createEmails() {
 }
 function createEmail(adress, subject, body, sentAt, sender = 'new friend', isSent) {
     var newEmail = {
-        id: utilService.makeId(),
+        id: gIdx++,
         subject: subject,
         body: body,
         isRead: false,

@@ -1,5 +1,6 @@
-import bigPreview from './big-preview.cmp.js' 
+import bigPreview from './big-preview.cmp.js'
 import { emailService } from '../services/email-service.js';
+import { storageService } from '../services/storage.service.js'
 
 
 export default {
@@ -48,25 +49,29 @@ export default {
             return emailDate
         },
         showShortText() {
-            if (this.email.body.length > 25) return this.email.body.substr(0,25)+'...'
+            if (this.email.body.length > 25) return this.email.body.substr(0, 25) + '...'
             return this.email.body
         }
     },
     methods: {
-        openBigPrev() {            
+        openBigPrev() {
             this.bigPrevIsOpen = !this.bigPrevIsOpen
             this.currEmail.isRead = true
+            var emails = emailService.getEmails()
+                .then((emails) => {
+                    storageService.store('emailsDB', emails)
+                })
         },
         changeStarred(event) {
             this.currEmail.isStared = !this.currEmail.isStared
             event.stopPropagation()
         },
-        getEmail(){
+        getEmail() {
             const emailId = this.email.id
             emailService.getEmailById(emailId)
-            .then(email => {
-                this.currEmail = email        
-            })
+                .then(email => {
+                    this.currEmail = email
+                })
         },
         onReadme() {
             this.currEmail.isRead = true
