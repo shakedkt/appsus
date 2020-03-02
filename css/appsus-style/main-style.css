@@ -23,6 +23,7 @@ button {
     cursor: pointer;
     border-radius: 20px;
     border: 1px solid rgb(227, 231, 219);
+    color: burlywood;
 }
 
 button:hover {

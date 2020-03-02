@@ -21,12 +21,15 @@ export default {
             </ul>
             </section>
             <review-add></review-add>
+           
+            <router-link class="back-books-btn" to="/miss-books" tag="button"><i class="fas fa-undo"></i></router-link>
+
           
  
 </div>
 </section>
     `,
-    // props: ['book'],
+
     data() {
         return {
             book: null,
@@ -80,6 +83,7 @@ export default {
 
                 })
         },
+
 
     },
     created() {
