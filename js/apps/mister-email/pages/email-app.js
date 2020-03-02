@@ -11,9 +11,9 @@ export default {
             <div class="nav-and-body">
             <div class="nav">
         <nav-bar :emails="emails" @set-filter="setFilter"></nav-bar>
-        <div class="compose-btn" @click="composeNewMail"> 
+        <button class="compose-btn" @click="composeNewMail"> 
         <i class="fas fa-plus">Compose</i>
-        </div>
+        </button>
         </div>
         <email-list v-if="emails" :emails="emailsForDisplay" ></email-list>
             </div>
