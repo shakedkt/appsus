@@ -1,7 +1,13 @@
+.appsus-header {
+    width: 20%;
+}
+
 .img-logo {
     object-fit: cover;
-    height: 131px;
-    width: 83px;
+    margin: auto;
+    width: 5vw;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .navbar {
@@ -10,7 +16,7 @@
     justify-content: space-around;
 }
 
-.navbar > * {
+.navbar>* {
     padding: 10px;
     cursor: pointer;
 }
