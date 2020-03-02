@@ -17,7 +17,7 @@ export default {
         Miss Books
     </router-link>
     
-    <router-link class="navbar-links about-us" to="/AboutUs" exact>
+    <router-link class="navbar-links about-us" to="/about" exact>
         About Us
     </router-link>
     </div>

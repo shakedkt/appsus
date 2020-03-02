@@ -1,4 +1,5 @@
 import home from './pages/home.cmp.js'
+import about from './pages/about.cmp.js'
 import emailApp from './apps/mister-email/pages/email-app.js'
 import emailDetails from './apps/mister-email/pages/email-details.js'
 import missKeepApp from './apps/miss-keep/pages-keep/keep-app.js'
@@ -9,6 +10,7 @@ import bookDetails from './apps/miss-books/cmps-books/book-details.cmp.js'
 
 const routes = [
     { path: '/', component: home },
+    { path: '/about', component: about },
     { path: '/email', component: emailApp },
     { path: '/email/:id', component: emailDetails },
     { path: '/miss-keep', component: missKeepApp },

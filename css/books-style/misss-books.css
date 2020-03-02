@@ -28,7 +28,7 @@ li.books-preview {
     text-align: center;
     font-size: 1.5rem;
     background-color: #EEF0EB;
-    width: 200px;
+    /* width: 200px; */
     height: 300px;
     cursor: pointer;
     list-style: none;
