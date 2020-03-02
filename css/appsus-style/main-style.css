@@ -118,3 +118,16 @@ a.navbar-links {
 a.navbar-links:hover {
     color: burlywood;
 }
+
+.home-img {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: auto;
+    height: 30vw;
+}
+
+.home-header {
+    text-align: center;
+    font-size: 4vw;
+}
