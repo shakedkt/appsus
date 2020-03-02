@@ -7,7 +7,7 @@ import bookDetails from '../cmps-books/book-details.cmp.js'
 export default {
     template: `
         <section class="my-app">
-            <h1>Book App</h1>
+            <h1 class="books-app-header">Miss Books</h1>
 
             <book-filter @set-filter="setFilter"></book-filter>
             <book-list v-if="!selectedBook" :books="booksToShow" @selected="selectBook"></book-list>
