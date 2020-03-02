@@ -1,6 +1,3 @@
-.readed {
-    font-weight: bold;
-}
 
 .opend {
     background-color: rgb(109, 109, 109);
@@ -21,7 +18,12 @@
 
 .email-prev-line > * {
     display: inline-block;
+    margin-left: 5px;
 }
+/*
+.prev-line-content > * {
+}
+*/
 
 .fas.fa-star.prev-line-star {
     font-weight: normal;
@@ -29,4 +31,8 @@
 
 .starred {
     font-weight: 900 !important; 
+}
+
+.readed {
+    font-weight: normal;
 }

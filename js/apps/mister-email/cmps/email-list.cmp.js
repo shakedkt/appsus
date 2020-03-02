@@ -4,7 +4,7 @@ import emailCompose from './email-compose.cmp.js'
 export default {
     template: `
     <section class="list-email-container">
-        <ul>
+        <ul calss="list-container">
             <li v-for="(currEmail, idx) in emails" class="email-prev">
                 <email-preview :email="currEmail"></email-preview>
             </li>

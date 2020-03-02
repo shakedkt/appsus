@@ -1,12 +1,14 @@
 import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { emailService } from '../services/email-service.js';
+//<button class="close-NewEmail-btn" @click.prevent="closeNewEmail">X</button>
 
 export default {
     template: `
     <div class="save-email-continer">
     <transition name="fade">
 <form v-if="newEmail" class="save-email">
-<button class="close-NewEmail-btn" @click.prevent="closeNewEmail">X</button>
+<i class="fas fa-times close-NewEmail-btn" @click.prevent="closeNewEmail"></i>
+
   <div class="form-group">
      <label for="email-to">Send to:</label>
      <input type="email" class="form-control" ref="adressInput" placeholder="Enter email">
@@ -20,10 +22,10 @@ export default {
   <div>
   <textarea type="text"  ref="bodyInput" rows="4" cols="50"></textarea>
   </div>
-
   <button @click="saveEmail" type="submit" class="save-btn" form="nameform" value="Submit" @click.prevent="closeNewEmail">Send</button>
   <button class="clear-btn" @click.prevent="clear"><img class="clear-btn-img" src="./img/Trash.png"/></button> 
-</form>
+
+  </form>
 </transition>
 </div>      
     `,
@@ -46,8 +48,9 @@ export default {
             var sentAt = new Date()
             var idxOfStrudel = adress.search("@")
             var sender = adress.substring(0, idxOfStrudel)
+            var isRead = false
             if (sender !== '') {
-                emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent)
+                emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent, isRead)
             }
             this.clear()
         },
@@ -65,6 +68,4 @@ export default {
             this.newEmail = false
         }
     }
-
-
 }

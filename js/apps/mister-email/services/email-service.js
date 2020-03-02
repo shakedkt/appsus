@@ -8,7 +8,7 @@ const fakeData = [
 
     {id: 1, subject: 'Wassap?', body: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates esse omnis quia dolores ullam corporis ab iusto. Soluta fuga, doloribus iure, tenetur quis eveniet ducimus corporis deserunt at, odio autem.', isRead: false, sentAt: 1551133930594, adress: 'itay@gmail.com', sender: 'itay', isStared: false,},
 
-    { id: 2, subject: 'meep meep?', body: 'meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron', isStared: false }
+    { id: 2, subject: 'meep?', body: 'i\'m roadr runner and i run very fast i\'ll catch you meep meep!', isRead: false, sentAt: 1551144930594, adress: 'yaron@gmail.com', sender: 'yaron', isStared: false }
 ]
 var emails = _createEmails();   
 

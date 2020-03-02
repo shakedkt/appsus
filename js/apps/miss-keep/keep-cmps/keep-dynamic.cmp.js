@@ -6,7 +6,7 @@ export default {
               <!-- <div v-for="(note, idx) in notes" :note="notesForDisplay">{{note.type}} | {{note.info.txt}} </div> -->
               <!-- <div v-for="(note, idx) in notes" >{{note.type}} {{note.info}} </div> -->
               
-              <component :is="info.noteType" :txt="info.txx"></component>
+              <component :is="info.noteType" :txt="info.txt"></component>
     </section>
        
     `,
