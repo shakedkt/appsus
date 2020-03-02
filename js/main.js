@@ -6,11 +6,13 @@ new Vue({
     el: '#appSus',
     router,
     template: `
-    <section class="our-app"> 
+    <section class="our-app">
+    <div class="header-nav"> 
             <appsus-header>
                 </appsus-header>
                 <nav-bar></nav-bar>
-         <router-view></router-view>
+         </div>
+                <router-view></router-view>
          <footer>
              Rotem 🐣 Shaked &copy; 2020 
         </footer>

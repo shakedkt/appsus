@@ -1,9 +1,9 @@
 export default {
     template: `
         <div class="appsus-header">
-            <router-link to="/" exact>
-                I'm The Header For U
-            </router-link>
+        <router-link to="/" exact>
+            <img class="img-logo" src="img/pngwave.png" alt="Apsus logo">
+        </router-link>
     
         </div>
     `,
