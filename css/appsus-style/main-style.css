@@ -88,7 +88,7 @@ footer {
 .header-nav {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(150, 150, 150);
+    background-color: #412142;
 }
 
 @media (max-width: 785px) {
