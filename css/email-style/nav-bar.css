@@ -5,6 +5,8 @@
     flex-direction: column;
 }
 
+
+
 .fas {
  color: burlywood;
 }
@@ -24,3 +26,24 @@
 }
 
 
+@media (max-width: 785px) {
+    .nav-bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /*
+        align-items
+    */
+    }
+
+    .nav-bar > * {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
