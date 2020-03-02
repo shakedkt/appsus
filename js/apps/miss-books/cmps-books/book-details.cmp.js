@@ -5,7 +5,7 @@ import { booksService } from '../services-books/books-service.js'
 export default {
     template: `
     <section v-if="book" class="book-details" :style="{ backgroundColor: changeColorByPrice }">
-    <h2 class="book-deatils-header">Book Details-{{book.title}}</h2>
+    <h2 class="book-deatils-header">{{book.title}}</h2>
         <img class="sale-img" src="/img/sale.png" v-if="isOnSale"/>
     <div>
             
@@ -20,8 +20,8 @@ export default {
                 </li>
             </ul>
             </section>
-          
             <review-add></review-add>
+          
  
 </div>
 </section>
@@ -55,9 +55,9 @@ export default {
         },
         changeColorByPrice() {
             if (this.book.listPrice['amount'] > 150) {
-                return this.color = '#ff0000'
+                return this.color = 'rgb(247, 188, 188)'
             } else if (this.book.listPrice['amount'] < 20) {
-                return this.color = '#008000'
+                return this.color = 'rgb(195, 236, 195)'
             }
         },
         isOnSale() {

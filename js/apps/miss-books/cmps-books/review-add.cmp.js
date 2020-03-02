@@ -5,7 +5,7 @@ export default {
         <section class="review-add">
         <h2>Review Add</h2>
         <form class="review-add-form" @submit.prevent="addReveiws">
-    
+            <div class="review-top-bar">
             <label class="review-full-name">
             Full Name: <input type="text" v-model="reveiw.fullName" placeholder="Enter your full name"/>
             </label>
@@ -14,7 +14,7 @@ export default {
                 <option v-for="inx in 5">{{inx}}</option>
             </select>
             <input type='date' v-model="reveiw.date" class="date-book-input" id='datetimepicker4' />
-     
+</div>
 
             <textarea class="txt-area-review" id="txt-area" v-model="reveiw.txt" rows="4" cols="50">
                 Enter your review here...
@@ -42,15 +42,11 @@ export default {
                 .then((book) => {
                     this.reviewsToShow = book.reveiws
                 })
+
         }
 
 
     }
-    // computed: {
-    //     fullName() {
-    //         console.log(value)
-    //     }
-    // }
 
 
 }
