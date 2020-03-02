@@ -5,7 +5,7 @@
 .img-logo {
     object-fit: cover;
     margin: auto;
-    width: 5vw;
+    width: 50px;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
