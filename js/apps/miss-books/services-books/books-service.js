@@ -87,16 +87,6 @@ function createBooks() {
 }
 
 
-// function createBook() {
-//     var imgBaseUrl = 'http://coding-academy.org/books-photos/'
-//     var book = {
-//         id: utilService.makeId(),
-//         title: utilService.makeLorem(10),
-//         publishedDate: utilService.getRandomInt(1900, 2000),
-//         thumbnail: imgBaseUrl + utilService.getRandomInt(1, 21) + '.jpg',
-//     }
-//     return book;
-// }
 
 function getBookById(id) {
     createNewDB()
@@ -106,9 +96,7 @@ function getBookById(id) {
 function saveReview(reveiw, bookId) {
     return getBookById(bookId)
         .then(book => {
-            // if (!book.reveiws) {
-            //     book.reveiws = []
-            // }
+            if (!book.reveiws) book.reveiws = []
             book.reveiws.push(reveiw)
             storageService.store(BOOKS_KEY, booksDB)
             return book

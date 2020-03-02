@@ -25,6 +25,16 @@ body {
 
 button {
     cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid rgb(227, 231, 219);
+}
+
+button:hover {
+    background-color: rgb(109, 109, 109);
+}
+
+button:focus {
+    outline: 0;
 }
 
 .fade-enter-active,
@@ -71,10 +81,8 @@ footer {
     padding: 10px;
     border-radius: 20px;
     border: 1px solid rgb(227, 231, 219);
-    ;
     width: 80px;
     margin-right: 20px;
-    cursor: pointer;
 }
 
 <<<<<<< HEAD=======.compose-btn:hover {
@@ -100,4 +108,3 @@ footer {
     justify-content: space-between;
     background-color: rgb(150, 150, 150);
 }
-
