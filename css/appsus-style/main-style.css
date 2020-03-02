@@ -97,3 +97,13 @@ footer {
     }
     
 }
+
+
+a.navbar-links {
+    color: white;
+    margin: auto;
+}
+
+a.navbar-links:hover {
+    color: burlywood;
+}
