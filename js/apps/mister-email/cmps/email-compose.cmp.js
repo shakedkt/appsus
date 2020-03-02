@@ -1,71 +1,72 @@
 import { eventBus, EVENT_SEND_EMAIL } from '../services/eventBus.service.js';
 import { emailService } from '../services/email-service.js';
-//<button class="close-NewEmail-btn" @click.prevent="closeNewEmail">X</button>
 
 export default {
     template: `
-    <div class="save-email-continer">
-    <transition name="fade">
-<form v-if="newEmail" class="save-email">
-<i class="fas fa-times close-NewEmail-btn" @click.prevent="closeNewEmail"></i>
+    <form v-if="newEmail" class="save-email">
+    <h4 class="compose-top">
+    New Email 
 
-  <div class="form-group">
-     <label for="email-to">Send to:</label>
-     <input type="email" class="form-control" ref="adressInput" placeholder="Enter email">
-  </div>
-  
-  <div class="form-group">
-    <label for="email-subject">Subject:</label>
-    <input type="text" class="form-control"  ref="subjectInput" placeholder="Enter subject">
-  </div>
+    <i class="fas fa-times close-NewEmail-btn" @click.prevent="closeNewEmail"></i>
+    </h4>
+<div class="form-section">
+        <div class="form-group">
+        <label for="email-to">Send to:</label>
+        <input type="email" class="form-control" ref="adressInput" placeholder="Enter email">
+        </div>
+     
+        <div class="form-group">
+        <label for="email-subject">Subject:
+        <input type="text" class="form-control"  ref="subjectInput" placeholder="Enter subject">
+        </label>
+        </div>
+     
+        <div class="form-group email-body">
+        <textarea class="email-content"  rows="4" columns="10" type="text" ref="bodyInput" style="border: none" placeholder="Enter email content..."></textarea>
+        </div>
+</div>
+    <div class="buttons-conteiner">
+        <button @click="saveEmail" type="submit" class="save-btn" form="nameform" value="Submit" @click.prevent="closeNewEmail">Send</button>
+       <i class="fas fa-trash-alt clear-btn" @click.prevent="clear"></i>
+    </div>
+        </form>
 
-  <div>
-  <textarea type="text"  ref="bodyInput" rows="4" cols="50"></textarea>
-  </div>
-  <button @click="saveEmail" type="submit" class="save-btn" form="nameform" value="Submit" @click.prevent="closeNewEmail">Send</button>
-  <button class="clear-btn" @click.prevent="clear"><img class="clear-btn-img" src="./img/Trash.png"/></button> 
-
-  </form>
-</transition>
-</div>      
-    `,
-    data() {
-        return {
-            newEmail: null,
-            isSent: true
-        }
-    },
-    created() {
-        eventBus.$on(EVENT_SEND_EMAIL, (newEmail) => {
-            this.newEmail = newEmail
-        })
-    },
-    methods: {
-        saveEmail() {
-            var adress = this.$refs.adressInput.value
-            var subject = this.$refs.subjectInput.value
-            var body = this.$refs.bodyInput.value
-            var sentAt = new Date()
-            var idxOfStrudel = adress.search("@")
-            var sender = adress.substring(0, idxOfStrudel)
-            var isRead = false
-            if (sender !== '') {
-                emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent, isRead)
+     `,
+     data() {
+         return {
+             newEmail: null,
+             isSent: true
             }
-            this.clear()
         },
-        clear() {
-            this.$refs.adressInput.value = ''
-            this.$refs.subjectInput.value = ''
-            this.$refs.bodyInput.value = ''
+        created() {
+            eventBus.$on(EVENT_SEND_EMAIL, (newEmail) => {
+                this.newEmail = newEmail
+            })
         },
-        closeNewEmail() {
-            /*
-            this.isSent = false
-            this.saveEmail()
-            this.isSent = true
-            */
-            this.newEmail = false
+        methods: {
+            saveEmail() {
+                var adress = this.$refs.adressInput.value
+                var subject = this.$refs.subjectInput.value
+                var body = this.$refs.bodyInput.value
+                var sentAt = new Date()
+                var idxOfStrudel = adress.search("@")
+                var sender = adress.substring(0, idxOfStrudel)
+                if (sender !== '') {
+                    emailService.createEmail(adress, subject, body, sentAt, sender, this.isSent)
+                }
+                this.clear()
+            },
+            clear() {
+                this.$refs.adressInput.value = ''
+                this.$refs.subjectInput.value = ''
+                this.$refs.bodyInput.value = ''
+            },
+            closeNewEmail() {
+                this.newEmail = false
+            }
         }
     }
-}
+    // <div class="save-email-continer">
+    // <transition name="fade">
+    // </transition>
+    //  </div>      

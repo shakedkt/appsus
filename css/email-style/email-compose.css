@@ -1,45 +1,81 @@
-
 /* email-compose */
 
-.save-email-continer {
-    position: fixed;
-    bottom: 32px;
-    left: 48px;
-}
 
 .save-email {
-    padding: 10px;
-    width: fit-content;
-    background-color: #EFDEDE;
     display: flex;
+    background-color: rgb(150, 150, 150);
+    border: 3px solid black;
     flex-direction: column;
+    position: fixed;
+    bottom: 26px;
+    left: 0px;
+    height: 376px;
+    width: 800px;
 }
 
+
 .close-NewEmail-btn {
-    align-self: flex-end;
-    background-color: transparent;
-    border: none;
-    width: 5%;
-    padding: 0%;
     cursor: pointer;
+    display: inline;
+    padding: 5px;
 }
 
 .save-btn {
     width: 20%;
     padding: 5px;
-    background-color: #F4F9E9;
-    border: 1px solid rgb(155, 155, 155);
+    background-color: rgb(150, 150, 150);
+    border: 2px solid rgb(155, 155, 155);
     border-radius: 15px;
     vertical-align: baseline;
 }
 
-.clear-btn {
-    align-self: flex-end;
-    background-color: transparent;
-    border: none;
-    width: 10%;
+.save-btn:hover {
+    background-color: rgb(180, 179, 179);
 }
 
-.clear-btn-img {
-    width: 60%;
+.compose-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    border-bottom: 3px solid black;
+    margin: 0px;
+}
+
+.form-group {
+    border-bottom: 3px solid black;
+    font-size: 1.5rem;
+    padding: 10px 15px 10px 0px;
+}
+
+.form-control {
+    background-color: rgb(150, 150, 150);
+    border: none;
+    width: 80%;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+.email-content {
+    background-color: rgb(150, 150, 150);
+    outline: none;
+    resize: both;
+    overflow: auto;
+    padding-bottom: 30px;
+    font-size: 1.3rem;
+}
+
+.clear-btn {
+    font-size: 1.3rem;
+    padding: 5px;
+}
+
+.buttons-conteiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 59px;
+}
+
+.email-body {
+    border-bottom: 0px;
 }

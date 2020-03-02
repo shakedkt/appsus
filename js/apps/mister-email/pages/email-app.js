@@ -8,12 +8,13 @@ export default {
     template: `
     <section class="email-container">
     <email-search class="email-search" @set-search="setSearch"></email-search>
-
-       <div class="compose-btn" @click="composeNewMail"> 
-    <i class="fas fa-plus">Compose</i>
-    </div>
             <div class="nav-and-body">
+            <div class="nav">
         <nav-bar :emails="emails" @set-filter="setFilter"></nav-bar>
+        <div class="compose-btn" @click="composeNewMail"> 
+        <i class="fas fa-plus">Compose</i>
+        </div>
+        </div>
         <email-list v-if="emails" :emails="emailsForDisplay" ></email-list>
             </div>
         </section>

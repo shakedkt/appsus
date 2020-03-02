@@ -13,7 +13,7 @@ export default {
         Miss Keep
         </router-link>
         |
-        <router-link class="navbar-links" to="/Books" exact>
+        <router-link class="navbar-links" to="/miss-books" exact>
         Miss Books
     </router-link>
     |

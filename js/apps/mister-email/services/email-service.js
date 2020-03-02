@@ -22,7 +22,6 @@ function _createEmails() {
     }
     return emails;
 }
-
 function createEmail(adress, subject, body, sentAt, sender = 'new friend', isSent) {
     var newEmail = {
         id: utilService.makeId(),

@@ -8,7 +8,7 @@ export default {
         <h4 @click="openBigPrev" class="email-prev-line" :class ="{readed: email.isRead,    opend: bigPrevIsOpen}" >
         <div class="inline-btns">
         <i class="fas fa-star prev-line-star" :class ="{starred: email.isStared}" @click="changeStarred" aria-hidden="true"></i>
-        <i class="fab fa-readme" aria-hidden="true"></i>
+        <i class="fab fa-readme" @click="onReadme" aria-hidden="true"></i>
     </div>
 
        <p>from: {{email.sender}}  <p> 
@@ -59,7 +59,6 @@ export default {
         },
         changeStarred(event) {
             this.currEmail.isStared = !this.currEmail.isStared
-            this.currEmail.isRead = true
             event.stopPropagation()
         },
         getEmail(){
@@ -68,6 +67,10 @@ export default {
             .then(email => {
                 this.currEmail = email        
             })
+        },
+        onReadme() {
+            this.currEmail.isRead = true
+            event.stopPropagation()
         }
     },
     components: {

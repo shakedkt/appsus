@@ -1,3 +1,10 @@
+/*base*/
+
+
+/*helpers*/
+
+@import '../base.css';
+@import '../books-style/misss-books.css';
 @import '../email-style/email-preview.css';
 @import '../email-style/email-list.css';
 @import '../email-style/big-preview.css';
@@ -5,7 +12,9 @@
 @import '../appsus-style/apsus-header.css';
 @import '../keep-style/keep-app.css';
 @import '../email-style/nav-bar.css';
-@import '../keep-style/note-text.cmp.css';
+
+/*media queries*/
+
 body {
     background-color: #F4F9E9;
 }
@@ -41,7 +50,6 @@ button {
 }
 
 footer {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -62,21 +70,18 @@ footer {
 .compose-btn {
     padding: 10px;
     border-radius: 20px;
-    border: 2px solid rgb(227, 231, 219);;
+    border: 1px solid rgb(227, 231, 219);
+    ;
     width: 80px;
-    align-self: flex-end;
     margin-right: 20px;
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
-.compose-btn:hover {
-background-color: rgb(109, 109, 109);
+<<<<<<< HEAD=======.compose-btn:hover {
+    background-color: rgb(109, 109, 109);
 }
 
->>>>>>> 1feca13e298f47d5666f648b06625b2f7d9aa43d
-.prev-line-star {
+>>>>>>>1feca13e298f47d5666f648b06625b2f7d9aa43d .prev-line-star {
     font-weight: 0;
 }
 
@@ -88,4 +93,10 @@ background-color: rgb(109, 109, 109);
     padding: 10px 30px 10px 30px;
     background-color: #F4F9E9;
     border: 1px solid rgb(227, 231, 219);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(150, 150, 150);
 }

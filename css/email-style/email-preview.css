@@ -1,6 +1,6 @@
 
 .opend {
-    background-color: rgb(109, 109, 109);
+    background-color: rgb(150, 150, 150);
 }
 
 .email-prev-line {
@@ -19,11 +19,8 @@
 .email-prev-line > * {
     display: inline-block;
     margin-left: 5px;
+    text-align: left;
 }
-/*
-.prev-line-content > * {
-}
-*/
 
 .fas.fa-star.prev-line-star {
     font-weight: normal;
@@ -35,4 +32,8 @@
 
 .readed {
     font-weight: normal;
+}
+
+.mail-subject{
+    text-align: left;
 }
