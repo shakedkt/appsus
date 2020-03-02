@@ -93,9 +93,9 @@ background-color: rgb(109, 109, 109);
     border: 1px solid rgb(227, 231, 219);
 }
 
-
 .header-nav {
     display: flex;
     justify-content: space-between;
     background-color: rgb(150, 150, 150);
 }
+

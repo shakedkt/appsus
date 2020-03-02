@@ -1,4 +1,4 @@
-const EMAILS_KEY = 'EMAILS';
+const EMAILS_KEY = 'emailsDB';
 
 function store(key, any) {
     localStorage[key] = JSON.stringify(any);

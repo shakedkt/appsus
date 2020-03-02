@@ -66,7 +66,3 @@ export default {
             }
         }
     }
-    // <div class="save-email-continer">
-    // <transition name="fade">
-    // </transition>
-    //  </div>      

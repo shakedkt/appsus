@@ -3,3 +3,14 @@ img {
     height: 131px;
     width: 83px;
 }
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.navbar > * {
+    padding: 10px;
+    cursor: pointer;
+}
