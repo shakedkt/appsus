@@ -28,7 +28,6 @@ li.books-preview {
     text-align: center;
     font-size: 1.5rem;
     background-color: #EEF0EB;
-    /* width: 200px; */
     height: 300px;
     cursor: pointer;
     list-style: none;
@@ -55,4 +54,15 @@ li.books-preview {
 }
 
 
-/* book-list */
+/* home */
+
+.home-header {
+    text-align: center;
+    font-size: 4vw;
+}
+
+.home-img {
+    width: 25vw;
+    margin: 0 auto;
+    display: block;
+}
