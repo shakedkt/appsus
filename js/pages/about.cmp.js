@@ -20,3 +20,9 @@ export default {
 
 
 }
+
+
+////for me
+// var str=''
+// var regex= new RegExp('bEst','i')
+// str.match(regex)
