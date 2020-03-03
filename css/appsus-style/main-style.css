@@ -5,6 +5,7 @@
 
 @import '../base.css';
 @import '../books-style/misss-books.css';
+@import './about.css';
 @import '../email-style/email-preview.css';
 @import '../email-style/email-list.css';
 @import '../email-style/big-preview.css';

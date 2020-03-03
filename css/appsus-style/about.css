@@ -1,0 +1,31 @@
+h1.about {
+    text-align: center;
+}
+
+.us-container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 50%;
+    gap: 2%;
+    padding: 5%;
+}
+
+.img-container {
+    width: 50%;
+    /* object-fit: fill; */
+}
+
+.rotem-said {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shaked-said {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

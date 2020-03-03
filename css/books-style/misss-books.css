@@ -10,7 +10,7 @@
 ul.book-list {
     margin-left: 0px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, minMax( 200px, 1fr));
     grid-auto-rows: 300px;
     gap: 5px;
 }
@@ -28,7 +28,7 @@ li.books-preview {
     text-align: center;
     font-size: 1.5rem;
     background-color: #EEF0EB;
-    width: 200px;
+    /* width: 200px; */
     height: 300px;
     cursor: pointer;
     list-style: none;
