@@ -6,12 +6,11 @@
     border: 3px solid black;
     flex-direction: column;
     position: fixed;
-    bottom: 26px;
+    bottom: 0px;
     left: 0px;
     height: 376px;
-    width: 800px;
+    width: 99%;
 }
-
 
 .close-NewEmail-btn {
     cursor: pointer;
